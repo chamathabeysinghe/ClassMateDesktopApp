@@ -1,0 +1,30 @@
+﻿<Window x:Class="ClassMateDesktop.Dashboard"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClassMateDesktop"
+        mc:Ignorable="d"
+        Title="Dashboard" Height="783.401" Width="1355.466">
+    <Grid>
+        <Label x:Name="label" Content="Current Class" HorizontalAlignment="Left" Margin="351,42,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.829,-0.272" Width="128"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="513,42,0,0" VerticalAlignment="Top" Width="603" Height="25" SelectionChanged="comboBox_SelectionChanged"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="754" Margin="0,0,0,-0.4" Stroke="Black" VerticalAlignment="Top" Width="297"/>
+        <ListView x:Name="questionListView" HorizontalAlignment="Left" Height="492" Margin="321,104,0,0" VerticalAlignment="Top" Width="513">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView x:Name="feedbackListView" HorizontalAlignment="Left" Height="492" Margin="861,104,0,0" VerticalAlignment="Top" Width="478">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="button" Content="Mark As Answered" HorizontalAlignment="Left" Margin="689,628,0,0" VerticalAlignment="Top" Width="145" Height="37" Click="button_Click"/>
+
+    </Grid>
+</Window>
