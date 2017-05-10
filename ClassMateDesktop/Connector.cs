@@ -50,10 +50,13 @@ namespace ClassMateDesktop
         public void postAnswer(string token,string _question,string details)
         {
             var request = new RestRequest("answer/answer-question" , Method.POST);
-            request.OnBeforeDeserialization = resp => { resp.ContentType = "application/json"; };
+            request.RequestFormat = DataFormat.Json;
+            
             request.AddHeader("Authorization", token);
-            request.AddBody("_question", _question);
-            request.AddBody("details", details);
+
+            request.AddBody(new { _question = _question, details = details });
+           // request.AddBody("_question", _question);
+          //  request.AddBody("details", details);
             IRestResponse response = client.Execute(request);
         }
 
