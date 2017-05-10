@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -34,7 +35,27 @@ namespace ClassMateDesktop
         {
             InitializeComponent();
             connector = new Connector();
-            updateClassList();  
+            updateClassList();
+            Thread thread = new Thread(new ThreadStart(sync));
+            thread.Start();
+        }
+
+        public delegate void UpdateData();
+
+        private void sync()
+        {
+            while (true)
+            {
+                label.Dispatcher.Invoke(
+                    new UpdateData(updateDetails), new object[] { });
+                
+
+               // updateDetails();
+               // Console.WriteLine("Hello Wolrd");
+                Thread.Sleep(10000);
+            }
+            
+            
         }
 
         private void updateClassList()
@@ -58,16 +79,21 @@ namespace ClassMateDesktop
 
         private void updateDetails()
         {
+            Console.WriteLine("*****Update details******");
             foreach (ClassRoom classRoom in classRoomList)
             {
                 if (classRoom.name.Equals(comboBox.SelectedValue))
                 {
+
                     currentClassId = classRoom._id;
                     List<Lecture> lectureList = connector.getLectures(Manager.getInstance().getToken(), currentClassId);
                     lecture = lectureList[lectureList.Count - 1];
                     feedbackList = lecture.feedbacks;
                     questionList = lecture.questions;
-                    foreach(Feedback f in feedbackList)
+                    feedbackListView.Items.Clear();
+
+
+                    foreach (Feedback f in feedbackList)
                     {
 
                         StackPanel l = new StackPanel();
@@ -79,13 +105,14 @@ namespace ClassMateDesktop
 
                         l.Children.Add(t2);
                         l.Children.Add(t1);
-                        
 
                         feedbackListView.Items.Add(l);
                     }
-                    foreach(Question q in questionList)
-                    {
+                    questionListView.Items.Clear();
 
+                    foreach (Question q in questionList)
+                    {
+                                                                                             
                         StackPanel l = new StackPanel();
                         l.Tag = q._id;
                         TextBlock t1 = new TextBlock();
@@ -97,13 +124,9 @@ namespace ClassMateDesktop
 
                         l.Children.Add(t1);
                         l.Children.Add(t2);
-                        
-                        questionListView.Items.Add(l);
 
-                        Console.WriteLine(q.answers);
-                        
-
-
+                        questionListView.Items.Add(l);  
+                                                                                               
                     }
 
                 }
@@ -115,5 +138,6 @@ namespace ClassMateDesktop
             string _question = (string)((StackPanel)questionListView.SelectedItem).Tag;
             connector.postAnswer(Manager.getInstance().getToken(), _question, "Answered in the lecture");
         }
+
     }
 }

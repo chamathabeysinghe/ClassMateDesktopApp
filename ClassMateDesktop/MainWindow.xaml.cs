@@ -51,18 +51,18 @@ namespace ClassMateDesktop
             if (response.Data.success.Equals("True"))
             {
                 Manager.getInstance().setToken(response.Data.token);
+                
                 Dashboard d = new Dashboard();
                 d.Show();
+                this.Close();
 
             }
             else
             {
                 MessageBox.Show("Incorrect password or user name");
-                Dashboard d = new Dashboard();
-                d.Show();
+                
             }
-            Console.WriteLine(response.Data.success);
-            Console.WriteLine(response.Data.token);
+            
 
         }
     }
