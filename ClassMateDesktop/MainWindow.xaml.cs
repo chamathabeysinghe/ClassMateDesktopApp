@@ -26,6 +26,8 @@ namespace ClassMateDesktop
             InitializeComponent();
         }
 
+
+
         private void button_Click(object sender, RoutedEventArgs e)
         {
             string email = textBox.Text;

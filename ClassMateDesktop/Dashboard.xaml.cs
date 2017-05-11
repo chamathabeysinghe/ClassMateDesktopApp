@@ -13,6 +13,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using LiveCharts;
+using LiveCharts.Wpf;
+using LiveCharts.Defaults;
 
 namespace ClassMateDesktop
 {
@@ -31,13 +34,45 @@ namespace ClassMateDesktop
         private Lecture lecture;
         private String currentClassId;
 
+        private ObservableValue goodValue;
+        private ObservableValue badValue;
+        private ObservableValue neutralValue;
+
         public Dashboard()
         {
             InitializeComponent();
+
+            goodValue = new ObservableValue(0);
+            badValue = new ObservableValue(0);
+            neutralValue = new ObservableValue(0);
+
+            goodOne.Values = new ChartValues<ObservableValue> { goodValue };
+            badOne.Values = new ChartValues<ObservableValue> { badValue };
+            neutralOne.Values = new ChartValues<ObservableValue> { neutralValue };
+
+            PointLabel = chartPoint =>
+                string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation);
+            DataContext = this;
+
+
             connector = new Connector();
             updateClassList();
             Thread thread = new Thread(new ThreadStart(sync));
             thread.Start();
+        }
+
+        public Func<ChartPoint, string> PointLabel { get; set; }
+
+        private void Chart_OnDataClick(object sender, ChartPoint chartpoint)
+        {
+            var chart = (LiveCharts.Wpf.PieChart)chartpoint.ChartView;
+
+            //clear selected slice.
+            foreach (PieSeries series in chart.Series)
+                series.PushOut = 0;
+
+            var selectedSeries = (PieSeries)chartpoint.SeriesView;
+            selectedSeries.PushOut = 8;
         }
 
         public delegate void UpdateData();
@@ -92,6 +127,10 @@ namespace ClassMateDesktop
                     questionList = lecture.questions;
                     feedbackListView.Items.Clear();
 
+                    badValue.Value = 0;
+                    goodValue.Value = 0;
+                    neutralValue.Value = 0;
+
 
                     foreach (Feedback f in feedbackList)
                     {
@@ -107,6 +146,19 @@ namespace ClassMateDesktop
                         l.Children.Add(t1);
 
                         feedbackListView.Items.Add(l);
+
+                        if (f.semantic.Equals("bad"))
+                        {
+                            badValue.Value += 1;
+                        }
+                        if (f.semantic.Equals("neutral"))
+                        {
+                            neutralValue.Value += 1;
+                        }
+                        if (f.semantic.Equals("Good"))
+                        {
+                            goodValue.Value += 1;
+                        }
                     }
                     questionListView.Items.Clear();
 

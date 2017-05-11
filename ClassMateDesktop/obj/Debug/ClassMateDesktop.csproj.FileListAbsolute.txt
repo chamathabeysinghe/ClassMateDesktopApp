@@ -16,3 +16,9 @@ C:\Projects\SoftwareEngineeringProject\ClassMateDesktop\ClassMateDesktop\bin\Deb
 C:\Projects\SoftwareEngineeringProject\ClassMateDesktop\ClassMateDesktop\bin\Debug\RestSharp.xml
 C:\Projects\SoftwareEngineeringProject\ClassMateDesktop\ClassMateDesktop\obj\Debug\Dashboard.g.cs
 C:\Projects\SoftwareEngineeringProject\ClassMateDesktop\ClassMateDesktop\obj\Debug\Dashboard.baml
+C:\Projects\SoftwareEngineeringProject\ClassMateDesktop\ClassMateDesktop\bin\Debug\LiveCharts.dll
+C:\Projects\SoftwareEngineeringProject\ClassMateDesktop\ClassMateDesktop\bin\Debug\LiveCharts.Wpf.dll
+C:\Projects\SoftwareEngineeringProject\ClassMateDesktop\ClassMateDesktop\bin\Debug\LiveCharts.pdb
+C:\Projects\SoftwareEngineeringProject\ClassMateDesktop\ClassMateDesktop\bin\Debug\LiveCharts.xml
+C:\Projects\SoftwareEngineeringProject\ClassMateDesktop\ClassMateDesktop\bin\Debug\LiveCharts.Wpf.pdb
+C:\Projects\SoftwareEngineeringProject\ClassMateDesktop\ClassMateDesktop\bin\Debug\LiveCharts.Wpf.xml

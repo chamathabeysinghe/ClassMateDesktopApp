@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClassMateDesktop"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
         Title="Dashboard" Height="783.401" Width="1355.466">
     <Grid>
@@ -17,7 +18,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <ListView x:Name="feedbackListView" HorizontalAlignment="Left" Height="492" Margin="861,104,0,0" VerticalAlignment="Top" Width="478">
+        <ListView x:Name="feedbackListView" HorizontalAlignment="Left" Height="216" Margin="861,104,0,0" VerticalAlignment="Top" Width="478">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
@@ -25,6 +26,16 @@
             </ListView.View>
         </ListView>
         <Button x:Name="button" Content="Mark As Answered" HorizontalAlignment="Left" Margin="689,628,0,0" VerticalAlignment="Top" Width="145" Height="37" Click="button_Click"/>
-
+        <lvc:PieChart x:Name="pieChart" LegendLocation="Bottom" DataClick="Chart_OnDataClick" Hoverable="False" DataTooltip="{x:Null}" Margin="861,353,9.8,28.6">
+            <lvc:PieChart.Series>
+                <lvc:PieSeries x:Name="goodOne" Title="Good" Values="1" DataLabels="True"
+                               LabelPoint="{Binding PointLabel}"/>
+                <lvc:PieSeries x:Name="badOne" Title="Bad" Values="1" DataLabels="True" 
+                               LabelPoint="{Binding PointLabel}"/>
+                <lvc:PieSeries x:Name="neutralOne" Title="Neutral" Values="1" DataLabels="True" 
+                               LabelPoint="{Binding PointLabel}"/>
+                
+            </lvc:PieChart.Series>
+        </lvc:PieChart>
     </Grid>
 </Window>
