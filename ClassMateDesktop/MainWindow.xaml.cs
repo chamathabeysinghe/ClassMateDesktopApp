@@ -67,6 +67,12 @@ namespace ClassMateDesktop
             
 
         }
+
+        private void aPicture_MouseDown(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine("Close clicked");
+            Environment.Exit(0);
+        }
     }
 
     public class Key

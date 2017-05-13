@@ -6,27 +6,37 @@
         xmlns:local="clr-namespace:ClassMateDesktop"
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
-        Title="Dashboard" Height="783.401" Width="1355.466">
+        Title="Dashboard" Height="645.801" Width="1205.066" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" Background="#FFEDEBEB">
     <Grid>
-        <Label x:Name="label" Content="Current Class" HorizontalAlignment="Left" Margin="351,42,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.829,-0.272" Width="128"/>
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="513,42,0,0" VerticalAlignment="Top" Width="603" Height="25" SelectionChanged="comboBox_SelectionChanged"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="754" Margin="0,0,0,-0.4" Stroke="Black" VerticalAlignment="Top" Width="297"/>
-        <ListView x:Name="questionListView" HorizontalAlignment="Left" Height="492" Margin="321,104,0,0" VerticalAlignment="Top" Width="513">
+        <Label x:Name="label" Content="Current Class" HorizontalAlignment="Left" Margin="351,92,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.829,-0.272" Width="128"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="513,92,0,0" VerticalAlignment="Top" Width="603" Height="25" SelectionChanged="comboBox_SelectionChanged"/>
+        <Rectangle Fill="#FF3A3A46" HorizontalAlignment="Left" Height="579.801" Margin="0,66,0,0" VerticalAlignment="Top" Width="297" d:LayoutOverrides="TopMargin, BottomMargin"/>
+        <ListView x:Name="questionListView" HorizontalAlignment="Left" Height="343.2" Margin="321,130,0,0" VerticalAlignment="Top" Width="505">
+            <ListView.Resources>
+                <Style TargetType="GridViewColumnHeader">
+                    <Setter Property="Visibility" Value="Collapsed" />
+                </Style>
+            </ListView.Resources>
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <ListView x:Name="feedbackListView" HorizontalAlignment="Left" Height="216" Margin="861,104,0,0" VerticalAlignment="Top" Width="478">
+        <ListView x:Name="feedbackListView" HorizontalAlignment="Left" Height="216" Margin="853,130,0,0" VerticalAlignment="Top" Width="323.5">
+            <ListView.Resources>
+                <Style TargetType="GridViewColumnHeader">
+                    <Setter Property="Visibility" Value="Collapsed" />
+                </Style>
+            </ListView.Resources>
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="button" Content="Mark As Answered" HorizontalAlignment="Left" Margin="689,628,0,0" VerticalAlignment="Top" Width="145" Height="37" Click="button_Click"/>
-        <lvc:PieChart x:Name="pieChart" LegendLocation="Bottom" DataClick="Chart_OnDataClick" Hoverable="False" DataTooltip="{x:Null}" Margin="861,353,9.8,28.6">
+        <Button x:Name="button" Content="Mark As Answered" HorizontalAlignment="Left" Margin="321,495.2,0,0" VerticalAlignment="Top" Width="185" Height="51.4" Click="button_Click" d:LayoutOverrides="HorizontalAlignment" Background="#FF2BB4F0" Foreground="White" FontSize="17.333" BorderBrush="{x:Null}"/>
+        <lvc:PieChart x:Name="pieChart" LegendLocation="Bottom" DataClick="Chart_OnDataClick" Hoverable="False" DataTooltip="{x:Null}" Margin="849,359,21.8,22.6">
             <lvc:PieChart.Series>
                 <lvc:PieSeries x:Name="goodOne" Title="Good" Values="1" DataLabels="True"
                                LabelPoint="{Binding PointLabel}"/>
@@ -34,8 +44,16 @@
                                LabelPoint="{Binding PointLabel}"/>
                 <lvc:PieSeries x:Name="neutralOne" Title="Neutral" Values="1" DataLabels="True" 
                                LabelPoint="{Binding PointLabel}"/>
-                
+
             </lvc:PieChart.Series>
         </lvc:PieChart>
+        <Rectangle Height="66.4" Margin="297,-0.4,0,0" VerticalAlignment="Top" Fill="White"/>
+        <Rectangle Fill="#FFEB741A" HorizontalAlignment="Left" Height="66" VerticalAlignment="Top" Width="297"/>
+        <Image MouseDown="aPicture_MouseDown" x:Name="image" HorizontalAlignment="Right" Height="36.4" Margin="0,12,28.566,0" VerticalAlignment="Top" Width="42.4" Source="ic_close_black_24dp_2x.png" Cursor="Hand"/>
+        <TextBlock x:Name="textBlock" Height="66" Margin="41.964,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="40" Foreground="White" HorizontalAlignment="Left" Width="282.036"><Run Text="Class"/><Run FontWeight="Bold" Text="MATE"/></TextBlock>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Height="54.8" Margin="70,92,0,0" TextWrapping="Wrap" Text="Dashboard" VerticalAlignment="Top" Width="121.2" Foreground="#FFD8DAD9" FontSize="18.667" FontFamily="Segoe UI Emoji"/>
+        <TextBlock x:Name="textBlock1_Copy" HorizontalAlignment="Left" Height="54.8" Margin="73.2,144.8,0,0" TextWrapping="Wrap" Text="Help" VerticalAlignment="Top" Width="121.2" Foreground="#FFD8DAD9" FontSize="18.667" FontFamily="Segoe UI Emoji"/>
+        <TextBlock x:Name="textBlock1_Copy1" HorizontalAlignment="Left" Height="54.8" Margin="70,199.6,0,0" TextWrapping="Wrap" Text="Contact Us" VerticalAlignment="Top" Width="121.2" Foreground="#FFD8DAD9" FontSize="18.667" FontFamily="Segoe UI Emoji"/>
+        <Rectangle Fill="#FF5B5B62" HorizontalAlignment="Left" Margin="0,130,0,0" Width="297" Opacity="0.5" Height="381.401" VerticalAlignment="Top"/>
     </Grid>
 </Window>

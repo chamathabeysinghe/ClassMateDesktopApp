@@ -42,9 +42,9 @@ namespace ClassMateDesktop
         {
             InitializeComponent();
 
-            goodValue = new ObservableValue(0);
-            badValue = new ObservableValue(0);
-            neutralValue = new ObservableValue(0);
+            goodValue = new ObservableValue(10);
+            badValue = new ObservableValue(10);
+            neutralValue = new ObservableValue(100);
 
             goodOne.Values = new ChartValues<ObservableValue> { goodValue };
             badOne.Values = new ChartValues<ObservableValue> { badValue };
@@ -114,7 +114,7 @@ namespace ClassMateDesktop
 
         private void updateDetails()
         {
-            Console.WriteLine("*****Update details******");
+
             foreach (ClassRoom classRoom in classRoomList)
             {
                 if (classRoom.name.Equals(comboBox.SelectedValue))
@@ -126,7 +126,7 @@ namespace ClassMateDesktop
                     feedbackList = lecture.feedbacks;
                     questionList = lecture.questions;
                     feedbackListView.Items.Clear();
-
+                    questionListView.Items.Clear();
                     badValue.Value = 0;
                     goodValue.Value = 0;
                     neutralValue.Value = 0;
@@ -146,7 +146,7 @@ namespace ClassMateDesktop
                         l.Children.Add(t1);
 
                         feedbackListView.Items.Add(l);
-
+                        Console.WriteLine(f.semantic);
                         if (f.semantic.Equals("bad"))
                         {
                             badValue.Value += 1;
@@ -155,13 +155,12 @@ namespace ClassMateDesktop
                         {
                             neutralValue.Value += 1;
                         }
-                        if (f.semantic.Equals("Good"))
+                        if (f.semantic.Equals("good"))
                         {
                             goodValue.Value += 1;
                         }
                     }
-                    questionListView.Items.Clear();
-
+                    
                     foreach (Question q in questionList)
                     {
                                                                                              
@@ -191,5 +190,9 @@ namespace ClassMateDesktop
             connector.postAnswer(Manager.getInstance().getToken(), _question, "Answered in the lecture");
         }
 
+        private void aPicture_MouseDown(object sender, RoutedEventArgs e)
+        {
+            Environment.Exit(0);
+        }
     }
 }

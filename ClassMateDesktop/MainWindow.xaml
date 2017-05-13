@@ -4,18 +4,22 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClassMateDesktop"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="377.425" Width="558.955">
-    <Grid>
+        mc:Ignorable="d" Height="377.425" Width="558.955" Background="{x:Null}" Topmost="True" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" BorderBrush="#FF1E0C94" BorderThickness="1">
+    <Grid Margin="0,-20.051,-6.4,-5.447" Background="#FFF4F4F4">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*"/>
-            <ColumnDefinition Width="170*"/>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="63*"/>
+            <ColumnDefinition Width="436*"/>
+            <ColumnDefinition Width="50*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="218.4,236,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1" Click="button_Click"/>
-        <Label x:Name="E_mail" Content="Email" HorizontalAlignment="Left" Margin="63.4,67,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <Label x:Name="label1" Content="Password" HorizontalAlignment="Left" Margin="63.4,120,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.234,0.673" Grid.Column="1"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="190.4,70,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="278" Grid.Column="1" TextChanged="textBox_TextChanged"/>
-        <PasswordBox x:Name="passwordBox" Grid.Column="1" HorizontalAlignment="Left" Margin="190.4,120,0,0" VerticalAlignment="Top" Height="26" Width="278"/>
+        <Button x:Name="button" Content="Login" HorizontalAlignment="Left" Margin="155.218,275.6,0,0" VerticalAlignment="Top" Width="120.6" Grid.Column="2" Click="button_Click" Foreground="White" Background="#FF1068A5" BorderBrush="{x:Null}" Height="34.36" FontSize="18.667"/>
+        <Label x:Name="E_mail" Content="Email" HorizontalAlignment="Left" Margin="0.198,133.824,0,0" VerticalAlignment="Top" Grid.Column="2" FontSize="14.667"/>
+        <Label x:Name="label1" Content="Password" HorizontalAlignment="Left" Margin="0.198,186.824,0,186.592" RenderTransformOrigin="-0.234,0.673" Grid.Column="2" FontSize="14.667" d:LayoutOverrides="Height"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="127.218,136.824,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="278" Grid.Column="2" TextChanged="textBox_TextChanged"/>
+        <PasswordBox x:Name="passwordBox" Grid.Column="2" HorizontalAlignment="Left" Margin="127.218,186.824,0,190.099" Width="278"/>
+        <Rectangle Grid.ColumnSpan="4" Height="64.507" Margin="-0.251,0,0,0" Stroke="Black" VerticalAlignment="Top" Fill="#FF6060E4" StrokeThickness="0"/>
+        <Image MouseDown="aPicture_MouseDown" x:Name="image" Grid.Column="3" Height="53.461" Margin="-6.18,18.936,10,0" VerticalAlignment="Top" Source="ic_close_white_24dp_2x.png" Cursor="Hand" ToolTip="Close"/>
+        <TextBlock x:Name="textBlock" Grid.Column="2" Height="32.015" Margin="-63.605,18.936,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="29.333" Foreground="White" HorizontalAlignment="Left" Width="151.714"><Run Text="Class"/><Run FontWeight="Bold" Text="MATE"/></TextBlock>
 
     </Grid>
 </Window>
