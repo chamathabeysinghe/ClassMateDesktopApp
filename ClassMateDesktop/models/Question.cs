@@ -13,6 +13,7 @@ namespace ClassMateDesktop.models
         public string details { get; set; }
         public string title { get; set; }
         public string link { get; set; }
+        public bool answered { get; set; }
         public List<Answer> answers;
 
     }

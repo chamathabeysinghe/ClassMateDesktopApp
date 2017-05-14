@@ -163,7 +163,11 @@ namespace ClassMateDesktop
                     
                     foreach (Question q in questionList)
                     {
-                                                                                             
+                        if (q.answered)
+                        {
+                            continue;
+                        }
+                        Console.WriteLine(q.answers);                                                  
                         StackPanel l = new StackPanel();
                         l.Tag = q._id;
                         TextBlock t1 = new TextBlock();
