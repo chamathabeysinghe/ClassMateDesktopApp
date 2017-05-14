@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:ClassMateDesktop"
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
+        MouseDown="Window_MouseDown"
         Title="Dashboard" Height="645.801" Width="1205.066" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" Background="#FFEDEBEB">
     <Grid>
         <Label x:Name="label" Content="Current Class" HorizontalAlignment="Left" Margin="351,92,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.829,-0.272" Width="128"/>

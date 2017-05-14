@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClassMateDesktop"
+        MouseDown="Window_MouseDown"
         mc:Ignorable="d" Height="377.425" Width="558.955" Background="{x:Null}" Topmost="True" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" BorderBrush="#FF1E0C94" BorderThickness="1">
     <Grid Margin="0,-20.051,-6.4,-5.447" Background="#FFF4F4F4">
         <Grid.ColumnDefinitions>

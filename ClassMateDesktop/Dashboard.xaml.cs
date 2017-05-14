@@ -198,5 +198,13 @@ namespace ClassMateDesktop
         {
             Environment.Exit(0);
         }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
+        }
     }
 }
